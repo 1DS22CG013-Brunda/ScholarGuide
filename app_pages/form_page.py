@@ -1,13 +1,15 @@
 import streamlit as st
+from dotenv import load_dotenv
 from openai import OpenAI
   # Correct import for OpenRouter
 from langchain_openai import ChatOpenAI  
-
+load_dotenv()
+api_key=os.getenv("OPENROUTER_API_KEY")
 # Function to call the Gemma 3 API and get the response
 def query_gemma_api(user_data):
     client = OpenRouter(
         base_url="https://openrouter.ai/api/v1",  # OpenRouter API URL
-        api_key="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"  # Replace with your OpenRouter API Key
+        api_key=api_key
     )
 
     # Send user data (age, income, caste, etc.) to the Gemma 3 API
